@@ -2,6 +2,7 @@ package com.study.daggerhilt.studyone
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.study.daggerhilt.R
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.HiltAndroidApp
@@ -13,6 +14,9 @@ class StudyOneMainActivity : AppCompatActivity() {
 
     //Inject : 의존성을 주입 받으려는 변수에 객체를 주입할수 있다, 이 어노테이션이 붙은 변수는 의존성을 주입받는 포인트를 선언한다는 의미
     @Inject lateinit var studyInject : String
+
+    //by viewModels()를 사용하면 ViewModelProvider를 사용하지 않고 viewmodel을 지연 생성할 수 있다
+    private val viewModel: MainViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
